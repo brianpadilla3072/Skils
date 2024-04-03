@@ -43,12 +43,9 @@ function passHtml(newactivity) {
   card.classList.add("item-skills", `item-activitys-added`, "skill-on-filter");
   const titleElement = document.createElement("h3");
   titleElement.innerHTML = title;
-  //title.id="activity-h1";
   const descriptionElement = document.createElement("p");
-  //descriptionElement.classList.add("activity-p");
   descriptionElement.innerHTML = description;
   const imageElement = document.createElement("img");
-  //imageElement.id ="activity-img";
   imageElement.src = url;
 
   card.appendChild(titleElement);
@@ -113,3 +110,4 @@ document.addEventListener("click", function (event) {
     handlerDelete(event);
   }
 });
+module.exports = {activity, repository_activity};
