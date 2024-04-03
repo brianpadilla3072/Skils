@@ -1,11 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Proyecto M1</h1>
-</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="esta pagina es de las tecnologias que estoy aprendiendo en Henrry."
+    />
+    <meta
+      name="keywords"
+      content="Palabras clave relacionadas con tu contenido."
+    />
+    <meta name="author" content="Nombre del autor o la empresa." />
+
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>Brian Padilla</title>
+    
+  </head>
+  <body>
+    <main class="center">
+      <section id="about" class="center text-alling-center">
+        <div id="title">
+          <h1>Brian Padilla</h1>
+          <p>FullStack Developer</p>
+        </div>
+        <article id="content-about" class="background-dark-light">
+          <h2>Sobre mi</h2>
+          <p>
+            Soy un apasionado del desarrollo de software con un viaje que comenzó en 2020. Mi enfoque autodidacta me ha llevado desde Java hasta explorar HTML, CSS y JavaScript para la creación de interfaces web. He ampliado mis habilidades en el desarrollo backend con PHP, React, Node.js y Express, y he incursionado con éxito en el desarrollo móvil utilizando React Native. Con experiencia en el diseño de aplicaciones de escritorio mediante Electron, mi perfil se destaca por la versatilidad. ¡Emocionado por contribuir en proyectos desafiantes y dinámicos! 🚀 ¡Explorando el código y construyendo soluciones innovadoras! 💻✨
+          </p>
+        </article>
+      </section>
+      <section
+        id="skills"
+        class="background-dark-light center text-alling-center"
+      >
+        <h2 class="in-line">skils</h2>
+        <div id="list-skills">
+          <article class="item-skills skill-on-filter">
+            <h3>css</h3>
+            <img
+            width="250rem"
+            height="250rem"
+              src="/img/CSS.png"
+              alt=""
+            />
+          </article>
+          <article class="item-skills skill-on-filter">
+            <h3>html</h3>
+            <img
+            width="250rem"
+            height="250rem"
+              src="/img/HTML.png"
+              alt=""
+            />
+          </article>
+          <article class="item-skills skill-on-filter">
+            <h3>javascript</h3>
+            <img
+            width="250rem"
+            height="250rem"
+              src="/img/JS.png"
+              alt=""
+            />
+          </article>
+        </div>
+      </section>
+      <section
+        id="add-activitys"
+        class="background-dark-light center text-alling-center"
+      >
+        <div class="contain">
+          <div id="form-add-activitys">
+            <div id="form-content">
+              <form id="form" class="add-activitys-template card-style" action="·">
+                
+                    <label class="in-block" for="">Nombre de la actividad</label>
+                    <input id="input-title" class="in-block" type="text" />
+                    <label class="in-block" for="">Descipcion</label>
+                    <textarea id="input-description" class="in-block" type="text"></textarea>
+                    <label class="in-block" for="">URL de la foto</label>
+                    <input id="input-url" class="in-block" type="text" />
+                    <div class="button">
+                        <button id="button-create" type="button">Crear</button>
+
+                    </div>
+                </form>
+            </div>
+          </div>
+          <article id="activitys-added" class="add-activitys-template">
+            <div id="contain-activitys-added" class="contain">
+              <!-------   aca van a ir la skils-->
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    
+    <script src="/app.js"></script>
+    <!--<script src="main.js"></script>--->
+  </body>
 </html>
