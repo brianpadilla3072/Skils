@@ -1,12 +1,12 @@
 class activity {
-  constructor(title, description, url, id) {
+  constructor(title, description, imgUrl, id) {
     this.title = title;
     this.description = description;
-    this.url = url;
+    this.imgUrl = imgUrl;
     this.id = id;
   }
 }
-class repository_activity {
+class repository {
   constructor() {
     this.activities = [];
     this.next_id = 0;
@@ -18,12 +18,12 @@ class repository_activity {
   getAllActivities() {
     return this.activities;
   }
-  get_activity(id) {
+  getActivity(id) {
     const activity = this.activities.find((activity) => activity.id === id);
     return activity ? activity : false;
   }
-  delete_activity(id) {
-    const index = this.activities.findIndex((activity) => activity.id == id);
+  deleteActivity(id) {
+    const index = this.activities.filter((activity) => activity.id == id);
     if (index !== -1) {
       this.activities.splice(index, 1);
       return true;
@@ -32,10 +32,10 @@ class repository_activity {
   }
 }
 
-let repository = new repository_activity();
+let newRepo = new repository();
 
 function passHtml(newactivity) {
-  const { title, description, url, id } = newactivity;
+  const { title, description, imgUrl, id } = newactivity;
   const card = document.createElement("div");
 
   card.dataset.key = id;
@@ -46,7 +46,7 @@ function passHtml(newactivity) {
   const descriptionElement = document.createElement("p");
   descriptionElement.innerHTML = description;
   const imageElement = document.createElement("img");
-  imageElement.src = url;
+  imageElement.src = imgUrl;
 
   card.appendChild(titleElement);
   card.appendChild(imageElement);
@@ -54,14 +54,14 @@ function passHtml(newactivity) {
   return card;
 }
 
-function allInstanceHTML(repository) {
+function allInstanceHTML(newRepo) {
   const content = document.getElementById("contain-activitys-added");
   content.innerHTML = "";
-  const listActivitys = repository.getAllActivities();
+  const listActivitys = newRepo.getAllActivities();
   const htmlElements = listActivitys.map((activit) => {
-    const { title, description, url, id } = activit;
+    const { title, description, imgUrl, id } = activit;
 
-    const instActivity = new activity(title, description, url, id);
+    const instActivity = new activity(title, description, imgUrl, id);
     return passHtml(instActivity);
   });
   htmlElements.forEach((iternacion) => {
@@ -77,10 +77,10 @@ function handler() {
     return;
   }
 
-  function esURL(url) {
+  function esURL(imgUrl) {
     // Expresión regular para verificar una URL
     const regex = /^(ftp|http|https):\/\/[^ "]+$/;
-    return regex.test(url);
+    return regex.test(imgUrl);
   }
 
   if (!esURL(imgUrlInput)) {
@@ -88,9 +88,9 @@ function handler() {
     return;
   }
   const newActivity = new activity(titleInput, descriptionInput, imgUrlInput);
-  repository.createActivity(newActivity);
+  newRepo.createActivity(newActivity);
   document.getElementById("form").reset();
-  allInstanceHTML(repository);
+  allInstanceHTML(newRepo);
 }
 
 const addButton = document.getElementById("button-create");
@@ -98,8 +98,8 @@ addButton.addEventListener("click", handler);
 
 function handlerDelete(event) {
   const id = event.target.dataset.key;
-  repository.delete_activity(id);
-  allInstanceHTML(repository);
+  newRepo.deleteActivity(id);
+  allInstanceHTML(newRepo);
 }
 /**
  * SOLO FUNCIONA PRECIONANDO EL DIV ID = ITEM
@@ -110,4 +110,4 @@ document.addEventListener("click", function (event) {
     handlerDelete(event);
   }
 });
-module.exports = {activity, repository_activity};
+module.exports = {activity, repository};

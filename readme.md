@@ -20,7 +20,7 @@
 - JavaScript
 
 ### Uso de Test:
-- **Responsividad**: El proyecto está diseñado para ser completamente responsivo, lo que significa que se adapta y se ve bien en una amplia gama de dispositivos, incluyendo computadoras de escritorio, tabletas y teléfonos móviles.
+- **Clase activity** : debería crear una instancia de activity con los parámetros adecuados. 
 
 ### Autor:
 Brian Padilla
