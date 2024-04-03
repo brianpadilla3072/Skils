@@ -212,13 +212,10 @@ label{
     .item-activitys-added{
         grid-column: span 1;
     }
-    input{
-        height: 1.5rem;
-        font-size: 16px; /* Tamaño de la fuente */
-        line-height: 1.5; /* Altura de línea */
-        max-width: 100%; /* Ancho máximo */
-        overflow: hidden; /* Oculta el texto que sobrepasa */
-        white-space: nowrap; /* Evita saltos de línea */
-        text-overflow: ellipsis; 
+    @media screen and (max-width: 600px){
+        .item-activitys-added{
+            grid-column: span 2;
+        }
     }
+    
 }
