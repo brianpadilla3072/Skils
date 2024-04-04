@@ -116,3 +116,7 @@ document.addEventListener("click", function (event) {
     handlerDelete(event);
   }
 });
+
+//document.getElementById("btn-refresh").addEventListener("click", function () {
+//  allInstanceHTML(newRepo);
+//});
