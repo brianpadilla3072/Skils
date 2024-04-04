@@ -110,13 +110,9 @@ function handlerDelete(event) {
     return;
   }
 }
-/**
- * SOLO FUNCIONA PRECIONANDO EL DIV ID = ITEM
- * no pude hacer que se elimine si se preciona en cualquier elemento dentro del id.
- */
+
 document.addEventListener("click", function (event) {
   if (event.target.id.startsWith("item")) {
     handlerDelete(event);
   }
 });
-module.exports = {activity, repository};
