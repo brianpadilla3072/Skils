@@ -23,32 +23,38 @@ class repository {
     return activity ? activity : false;
   }
   deleteActivity(id) {
-    const index = this.activities.filter((activity) => activity.id == id);
-    if (index !== -1) {
-      this.activities.splice(index, 1);
-      return true;
-    }
-    return false;
-  }
+    this.activities = this.activities.filter((activity) => activity.id != id);
+    return true;
+}
 }
 
 let newRepo = new repository();
 
 function passHtml(newactivity) {
   const { title, description, imgUrl, id } = newactivity;
-  const card = document.createElement("div");
 
-  card.dataset.key = id;
-  card.id = "item";
+  const card = document.createElement("div");
+  card.id = "item-card";
   card.classList.add("item-skills", `item-activitys-added`, "skill-on-filter");
+
+  const btnDelete = document.createElement("button");
+  btnDelete.id = "item"
+  btnDelete.dataset.key = id;
+  btnDelete.classList.add("card-btn-delete")
+  btnDelete.innerText ="X"
+
   const titleElement = document.createElement("h3");
+  titleElement.classList.add("card-title");
   titleElement.innerHTML = title;
+
   const descriptionElement = document.createElement("p");
   descriptionElement.innerHTML = description;
+
   const imageElement = document.createElement("img");
   imageElement.src = imgUrl;
 
   card.appendChild(titleElement);
+  card.appendChild(btnDelete);
   card.appendChild(imageElement);
   card.appendChild(descriptionElement);
   return card;
@@ -98,8 +104,11 @@ addButton.addEventListener("click", handler);
 
 function handlerDelete(event) {
   const id = event.target.dataset.key;
-  newRepo.deleteActivity(id);
-  allInstanceHTML(newRepo);
+  
+  if(newRepo.deleteActivity(id)){
+    allInstanceHTML(newRepo);
+    return;
+  }
 }
 /**
  * SOLO FUNCIONA PRECIONANDO EL DIV ID = ITEM
