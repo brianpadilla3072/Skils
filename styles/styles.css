@@ -43,15 +43,24 @@ h1 {
 #content-about {
   padding: var(--padding);
   border-radius: var(--radius-contenedores);
-}
-#content-about h2 {
+  }
+  #content-about h2 {
   font-size: var(--size-title);
-}
-#title {
-  padding: 2rem;
-}
-#title h1 {
-  font-size: 3rem;
+  }
+  .img-about{
+    overflow: hidden;
+  }
+ .img-profile {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+
+  }
+  #title {
+    padding: 2rem;
+    }
+    #title h1 {
+      font-size: 3rem;
   margin: 0%;
 }
 
